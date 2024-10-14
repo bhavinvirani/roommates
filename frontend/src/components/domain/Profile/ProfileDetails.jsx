@@ -64,6 +64,7 @@ export const ProfileDetails = () => {
         setReceivedRequest(x[0])
       );
     }
+      // eslint-disable-next-line
   }, [params]);
 
   const handleSendRequest = () => {

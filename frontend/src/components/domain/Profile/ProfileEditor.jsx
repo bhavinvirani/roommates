@@ -38,6 +38,7 @@ export const ProfileEditor = () => {
       if (x?.name) setNameReq(true);
       if (x?.city) setCityReq(true);
     });
+      // eslint-disable-next-line
   }, []);
 
   const mergeProfile = (delta) => {

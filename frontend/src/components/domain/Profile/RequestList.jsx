@@ -41,6 +41,7 @@ export const RequestList = () => {
     };
     getRequestsForRecipient();
     getRequestsForSender();
+      // eslint-disable-next-line
   }, []);
 
   const deleteRequest = async (from, to) => {
@@ -81,6 +82,7 @@ export const RequestList = () => {
         addRoommate();
       }
     }
+      // eslint-disable-next-line
   }, [sender]);
 
   useEffect(() => {
@@ -89,6 +91,7 @@ export const RequestList = () => {
         setSentRequests(sentRequests.filter((x) => x.to !== recipient))
       );
     }
+      // eslint-disable-next-line
   }, [recipient]);
 
   return (

@@ -101,6 +101,7 @@ export const ProfileSearch = ({ profiles, setSearchResults }) => {
       });
     }
     setSearchResults(results);
+      // eslint-disable-next-line
   }, [lifestylePref, propertyPref, agePref, genderPref, search]);
 
   return (
