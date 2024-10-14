@@ -10,7 +10,7 @@ export const LandingPage = () => {
           <div className="row justify-content-center">
             <div className="col-xl-6">
               <div className="text-center text-white">
-                <h1 className="mb-5">Find your new roommates today</h1>
+                <h1 className="mb-5">Find your new roommates today!</h1>
                 <div className="col-auto">
                   <Link
                     to={`register`}
