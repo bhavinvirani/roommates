@@ -22,6 +22,7 @@ export const PersistentLogin = () => {
     };
     !auth?.accessToken ? verifyRefreshToken() : setIsLoading(false);
     return () => (isMounted = false);
+  // eslint-disable-next-line
   }, []);
 
   return (

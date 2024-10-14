@@ -23,7 +23,8 @@ export const RoommateList = ({ username = false, standalone = false }) => {
       }
     };
     getRoommates();
-  }, []);
+    
+  }, [auth.username, axiosPrivate, location, navigate, username]);
 
   return (
     <>
