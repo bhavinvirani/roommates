@@ -30,7 +30,8 @@ export const ProfileExplorer = () => {
         x.filter((y) => y.username !== auth.username && y.name !== null)
       );
     });
-  }, [auth.username, axiosPrivate, location, navigate]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>

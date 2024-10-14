@@ -9,6 +9,12 @@ const dbOptions = {
   port: dbConfig.port,
   dialect: dbConfig.dialect,
   logging: false,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
 };
 
 let db = {};
