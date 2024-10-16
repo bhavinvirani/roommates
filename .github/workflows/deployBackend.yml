@@ -32,6 +32,7 @@ jobs:
         #   docker tag ${{ secrets.IMAGE_REPO_NAME }}:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.REGION }}.amazonaws.com/${{ secrets.IMAGE_REPO_NAME }}:latest
         #   docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.REGION }}.amazonaws.com/${{ secrets.IMAGE_REPO_NAME }}:latest
         run: |
+            cd backend
             docker buildx create --use
             docker buildx inspect --bootstrap
             docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.REGION }}.amazonaws.com/${{ secrets.IMAGE_REPO_NAME }}:latest --push .
