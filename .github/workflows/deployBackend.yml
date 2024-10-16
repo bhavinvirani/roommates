@@ -27,10 +27,6 @@ jobs:
           aws ecr get-login-password --region ${{ secrets.REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.REGION }}.amazonaws.com
 
       - name: Build, tag, and push image to Amazon ECR
-        # run: |
-        #   docker build -t ${{ secrets.IMAGE_REPO_NAME }}:latest
-        #   docker tag ${{ secrets.IMAGE_REPO_NAME }}:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.REGION }}.amazonaws.com/${{ secrets.IMAGE_REPO_NAME }}:latest
-        #   docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.REGION }}.amazonaws.com/${{ secrets.IMAGE_REPO_NAME }}:latest
         run: |
             cd backend
             docker buildx create --use
