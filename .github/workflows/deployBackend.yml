@@ -20,7 +20,7 @@ jobs:
           working-directory: ./backend
           run: |
             npm ci
-            npm run build
+            npm run test
           env:
             NODE_ENV: ${{ secrets.NODE_ENV }}
             CORS_ORIGIN: ${{ secrets.CORS_ORIGIN }}
