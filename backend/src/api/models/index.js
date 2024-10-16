@@ -7,7 +7,7 @@ const dbConfig = require('../../config/database')[process.env.NODE_ENV];
 const dbOptions = {
   host: dbConfig.host,
   port: dbConfig.port,
-  dialect: dbConfig.dialect,
+  dialect: "postgres",
   logging: false,
   dialectOptions: {
     ssl: {
