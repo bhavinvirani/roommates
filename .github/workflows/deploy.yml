@@ -2,8 +2,8 @@ name: build-and-deploy-frontend
 
 on:
   push:
-    paths:
-      - 'frontend/**'
+    # paths:
+    #   - 'frontend/**'
     branches: 
       - master
 
