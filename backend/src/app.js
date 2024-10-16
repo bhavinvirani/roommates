@@ -57,6 +57,11 @@ app.use('/public', express.static(path.join(__dirname, '../public')));
 
 // Routes
 app.use('/api/v1', require('./routes'));
+app.use('/health', (req, res) => {
+  res.status(200).json({
+    message: 'Server is Alive :)',
+  });
+});
 
 app.use('*', errorHandler);
 app.use(endpointNotFound);

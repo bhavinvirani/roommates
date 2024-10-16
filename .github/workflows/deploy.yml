@@ -1,11 +1,14 @@
-name: Deploy
+name: build-and-deploy-frontend
 
 on:
   push:
-    branches: [master]
+    paths:
+      - 'frontend/**'
+    branches: 
+      - master
 
 jobs:
-  build-and-deploy-frontend:
+  deploy:
     name: Build and Deploy Frontend
     runs-on: ubuntu-latest
 
