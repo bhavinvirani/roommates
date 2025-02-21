@@ -21,7 +21,7 @@ const getAllRequests = asyncWrapper(async (req, res) => {
     requests = await requestService.getAllRequests();
     requests = await avatarService.addSignedUrl(requests);
   }
-  console.log("++++",requests);
+  
   return successResponse(res, statusCode.SUCCESS, requests, 'Requests found', true);
 });
 

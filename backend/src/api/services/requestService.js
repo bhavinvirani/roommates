@@ -100,7 +100,6 @@ const getRequestsBySender = async (from) => {
     ...request.get(),
     ...(request.toUser ? request.toUser.get() : {}),
   }));
-  console.log(mergedRequests);
   return mergedRequests;
 };
 
