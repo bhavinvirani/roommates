@@ -9,12 +9,14 @@ const dbOptions = {
   port: dbConfig.port,
   dialect: "postgres",
   logging: false,
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
+  ...(process.env.NODE_ENV === "production" && {
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
     },
-  },
+  }),
 };
 
 let db = {};

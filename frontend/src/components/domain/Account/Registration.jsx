@@ -6,8 +6,7 @@ import { CredentialsField, PlainNavBar } from "../../common";
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,11}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const PASSWORD_REGEX =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 export const Registration = () => {
   const { setAuth } = useAuth();
@@ -74,6 +73,14 @@ export const Registration = () => {
           <div className={errorMessage ? "alert alert-danger" : "d-none"}>
             {errorMessage}
           </div>
+          <div className="text-center mb-4">
+            <img
+              src="/images/logo.png"
+              alt="Sign In"
+              className="img-fluid"
+              style={{ maxWidth: "40%", height: "auto" }}
+            />
+          </div>
           <h1>Register Your Account</h1>
           <CredentialsField
             label="Username:"
@@ -83,9 +90,7 @@ export const Registration = () => {
             setFocus={(x) => setUserNameFocus(x)}
           />
           <div
-            className={
-              userNameFocus && !validUserName ? "alert alert-primary" : "d-none"
-            }
+            className={userNameFocus && !validUserName ? "alert alert-primary" : "d-none"}
           >
             4 to 12 characters.
             <br />
@@ -100,11 +105,7 @@ export const Registration = () => {
             setValue={(email) => setEmail(email)}
             setFocus={(x) => setEmailFocus(x)}
           />
-          <div
-            className={
-              emailFocus && !validEmail ? "alert alert-primary" : "d-none"
-            }
-          >
+          <div className={emailFocus && !validEmail ? "alert alert-primary" : "d-none"}>
             Must be a valid email address.
           </div>
           <CredentialsField
@@ -124,8 +125,8 @@ export const Registration = () => {
           >
             8 to 24 characters.
             <br />
-            Must include uppercase and lowercase letters, a number, and a
-            special character.
+            Must include uppercase and lowercase letters, a number, and a special
+            character.
             <br />
             Allowed special characters: ! @ # $ %
           </p>
@@ -149,9 +150,7 @@ export const Registration = () => {
           <button
             type="button"
             className="btn btn-primary btn-lg col-12 mt-1 mb-2"
-            disabled={
-              !validUserName || !validPassword || !validConfirm ? true : false
-            }
+            disabled={!validUserName || !validPassword || !validConfirm ? true : false}
             onClick={handleSubmit}
           >
             Sign Up

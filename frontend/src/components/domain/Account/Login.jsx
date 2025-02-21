@@ -39,6 +39,14 @@ export const Login = () => {
           <div className={errorMessage ? "alert alert-danger" : "d-none"}>
             {errorMessage}
           </div>
+          <div className="text-center mb-4">
+            <img
+              src="/images/logo.png"
+              alt="Sign In"
+              className="img-fluid"
+              style={{ maxWidth: "40%", height: "auto" }}
+            />
+          </div>
           <h1>Sign In</h1>
           <CredentialsField
             label="Email or Username:"

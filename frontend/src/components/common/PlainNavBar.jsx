@@ -5,9 +5,16 @@ export const PlainNavBar = () => {
     <>
       <nav className="navbar navbar-expand-md sticky-top navbar-dark bg-dark shadow">
         <div className="container-fluid">
-          <Link to={`/`} className=" navbar-brand fw-bold">
-            Roommates
-          </Link>
+          <div>
+            <Link to={`/`} className=" navbar-brand fw-bold">
+              <img
+                src="/images/title.png"
+                alt="Sign In"
+                className="img-fluid"
+                style={{ maxWidth: "150px", height: "auto" }}
+              />
+            </Link>
+          </div>
           <div className="navbar-nav justify-content-end">
             <NavLink to={`/login`} className="nav-link">
               Sign In
