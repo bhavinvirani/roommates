@@ -48,6 +48,47 @@
 - **S3** and **CloudFront** for scalable, high-performance image delivery.
 - **Secrets Manager** for securely managing private keys to generate signed CloudFront URLs.
 
+## Cloud Architecture
+
+The application is deployed on AWS Cloud, following the AWS Well-Architected Framework to ensure scalability, security, and reliability. Multiple AWS services are integrated to optimize performance and maintain best practices.
+
+![301356490-024714eb-f4df-4145-b9b5-b2e504253ad9-2](https://github.com/user-attachments/assets/96936f5b-b427-4c02-a4dc-c2348fa9ee7b)
+
+### **Frontend Architecture**
+- **React.js Client** deployed using AWS services.
+- **Amazon S3** for hosting static content.
+- **CloudFront** as a CDN for fast and global content delivery.
+- **ACM (AWS Certificate Manager)** for SSL/TLS certificates to secure communication.
+- **Route 53** for DNS management and domain routing.
+
+### **Backend Architecture**
+- **Node.js Express API** containerized and stored in **ECR (Elastic Container Registry)**.
+- **ECS (Elastic Container Service)** with **Fargate** for serverless, containerized deployment.
+- **ALB (Application Load Balancer)** to distribute incoming traffic efficiently.
+- **Secrets Manager** to manage sensitive environment variables like private keys securely.
+
+### **Database Architecture**
+- **Amazon RDS (Relational Database Service)** with **Postgres** for structured data storage.
+- RDS is configured with automated backups, scaling, and multi-AZ deployment for high availability.
+
+### **Media Storage & Delivery**
+- **Amazon S3** for storing avatar images.
+- **CloudFront** for caching and globally distributing images.
+- **Secrets Manager** for securely retrieving private keys to generate CloudFront signed URLs.
+
+### **Security & Compliance**
+- **IAM Roles & Policies** to enforce least privilege access.
+- **VPC (Virtual Private Cloud)** for secure networking and resource isolation.
+- **Security Groups** to control inbound and outbound traffic.
+- **CORS (Cross-Origin Resource Sharing)** implemented to allow controlled API access.
+
+### **Scalability & Reliability**
+- **Auto Scaling Groups** for backend services to handle varying traffic loads.
+- **CloudWatch** for monitoring logs, performance metrics, and system health.
+- **ECS Task Scheduling** for managing long-running background processes.
+
+
+
 ## CI/CD Pipeline
 
 ### Unit Testing:
