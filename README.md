@@ -1,6 +1,6 @@
 <div align="center">
   <br>
-  <img alt="Roommate" src="" width="200px">
+  <img alt="Roommate" src="https://github.com/user-attachments/assets/3dfc15b4-b7fb-4ae8-b932-607230ad68c3" width="200px">
   <h1> Roommate </h1>
   <strong>💰 AI-powered wealth management web app—securely link multiple bank accounts, track transactions with receipt uploads, set budgets, and receive personalized AI-driven monthly reports based on past data.</strong>
 </div>
@@ -57,6 +57,15 @@
 ### Deployment with GitHub Actions:
 - **Frontend**: The React client is compiled and sent to an **S3 bucket**, followed by invalidating the **CloudFront** cache to deliver updated content.
 - **Backend**: Docker images are uploaded to **ECR** and deployed through **ECS** using Fargate, ensuring the latest changes are live.
+
+## Example
+<img width="1494" alt="Banner" src="https://github.com/user-attachments/assets/94e6e4b4-6db2-4b9c-924b-e90dd016dea2" />
+<img width="652" alt="signup" src="https://github.com/user-attachments/assets/9fae9065-dbba-462f-b001-331a653d06dd" />
+<img width="962" alt="User-Profile" src="https://github.com/user-attachments/assets/51ac3317-3457-4110-9314-41ab53494288" />
+<img width="1501" alt="Roommate-request-sent" src="https://github.com/user-attachments/assets/313e49a1-903b-4347-9c74-577aa4726d52" />
+<img width="1500" alt="Roommate-request-recived" src="https://github.com/user-attachments/assets/a5e7a491-72a8-4a2f-998f-5b30b2ba6c76" />
+<img width="1487" alt="roommate-profile" src="https://github.com/user-attachments/assets/e81fcf08-73ca-4dd4-a4ed-4a8e1efe978e" />
+
 
 ## Configuration
 
