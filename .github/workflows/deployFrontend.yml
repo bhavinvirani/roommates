@@ -1,48 +1,55 @@
-name: build-and-deploy-frontend
+name: build-and-deploy-frontend  # Name of the workflow
 
 on:
   push:
     paths:
-      - 'frontend/**'
+      - 'frontend/**'  # Trigger the workflow only if changes are made inside the 'frontend' directory
     branches: 
-      - master
+      - master  # Run this workflow only when changes are pushed to the 'master' branch
 
 jobs:
   deploy:
-    name: Build and Deploy Frontend
-    runs-on: ubuntu-latest
+    name: Build and Deploy Frontend  # Job name
+    runs-on: ubuntu-latest  # This job will run on the latest Ubuntu runner
 
     steps:
-      - uses: actions/checkout@v3
+      # Step 1: Checkout repository code
+      - uses: actions/checkout@v3  # Fetches the latest code from the repository
+
+      # Step 2: Set up Node.js environment
       - uses: actions/setup-node@v3
         with:
-          node-version: "20"
+          node-version: "20"  # Use Node.js version 20
 
+      # Step 3: Configure AWS credentials for authentication
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}  # AWS Access Key (stored as a GitHub secret)
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  # AWS Secret Key (stored as a GitHub secret)
+          aws-region: ${{ secrets.REGION }}  # AWS Region (stored as a GitHub secret)
 
+      # Step 4: Install dependencies for the React frontend
       - name: Install dependencies
-        working-directory: ./frontend
-        run: npm ci
+        working-directory: ./frontend  # Navigate to the frontend directory
+        run: npm ci  # Install dependencies using npm (faster and ensures clean install)
 
+      # Step 5: Build the React application
       - name: Build React Client
-        working-directory: ./frontend
-        run: npm run build
+        working-directory: ./frontend  # Navigate to the frontend directory
+        run: npm run build  # Run the build script to generate production-ready files
 
+      # Step 6: Deploy built React files to AWS S3 bucket
       - name: Deploy React Client to s3
-        working-directory: ./frontend
-        run: |
-          aws s3 sync ./build/ s3://${{ secrets.S3_BUCKET_NAME }}
+        working-directory: ./frontend  # Navigate to the frontend directory
+        run: aws s3 sync ./build/ s3://${{ secrets.S3_BUCKET_NAME }}  # Sync built files to the S3 bucket
 
+      # Step 7: Invalidate CloudFront cache to serve the latest version of the site
       - name: Cloudfront Invalidation cache
-        uses: chetan/invalidate-cloudfront-action@master
+        uses: chetan/invalidate-cloudfront-action@master  # Third-party action to invalidate CloudFront cache
         env:
-          DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-          PATHS: "/*"
-          AWS_REGION: ${{ secrets.REGION }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          DISTRIBUTION: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}  # CloudFront Distribution ID
+          PATHS: "/*"  # Invalidate all cached files
+          AWS_REGION: ${{ secrets.REGION }}  # AWS Region
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}  # AWS Access Key
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  # AWS Secret Key
