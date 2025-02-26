@@ -1,8 +1,6 @@
 <div align="center">
   <br>
   <img alt="Roommate" src="https://github.com/user-attachments/assets/3dfc15b4-b7fb-4ae8-b932-607230ad68c3" width="200px">
-  <h1> Roommate </h1>
-  <strong>💰 AI-powered wealth management web app—securely link multiple bank accounts, track transactions with receipt uploads, set budgets, and receive personalized AI-driven monthly reports based on past data.</strong>
 </div>
 
 ### ⚙️ Tech Stack
