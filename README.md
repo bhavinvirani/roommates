@@ -3,14 +3,16 @@
   <img alt="Roommate" src="https://github.com/user-attachments/assets/3dfc15b4-b7fb-4ae8-b932-607230ad68c3" width="200px">
 </div>
 
-### ⚙️ Tech Stack
-## Features
+
+### Features
 - **Personal Account & Authentication**: Secure login with JWT, including access and refresh tokens for persistent sessions.
 - **Profile Creation & Editing**: Add personal details like avatar, description, and lifestyle preferences.
 - **User Search & Filters**: Search for users with advanced filtering options based on traits.
 - **Roommate Requests**: Send/receive roommate requests with custom messages and manage them (approve, decline, rescind).
 - **Roommate List**: View your personal roommates as well as other users' roommates.
 
+- 
+### ⚙️ Tech Stack
 ## Frontend
 
 **Technologies**: React.js, Axios, Bootstrap
